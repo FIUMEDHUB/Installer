@@ -7,3 +7,5 @@ In order to install the dependencies used by the Med Hub system clone the instal
 `cd Installer`
 
 `chmod u+x installer`
+
+`./installer`
