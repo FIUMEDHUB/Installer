@@ -1,0 +1,39 @@
+#!/bin/bash
+echo MED-HUB INSTALLER
+echo =================
+echo Updating...
+sudo apt-get update
+echo Removing nodejs...
+sudo apt-get remove nodejs
+echo Installing NVM...
+sudo wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+. ~/.nvm/nvm.sh
+echo Installing nvm v0.10.25...
+nvm install v0.10.25
+nvm use v0.10.25
+echo Setting as default...
+nvm alias default v0.10.25
+echo Installing node-gyp@3.0.3
+npm install node-gyp@3.0.3
+echo Installing bluetooth development libraries...
+sudo apt-get install build-essential libbluetooth-dev
+echo Installing bluetooth-serial-port...
+npm install bluetooth-serial-port
+echo Installing express...
+npm install express
+echo Installing socket.io...
+npm install socket.io
+echo Cloning socket.io-flot-defaults
+cd A
+git clone https://github.com/FrankHassanabad/socket.io-flot-example.git
+socket.io-flot-example/
+cd socket.io-flot-example
+echo Installing JSON depencies...
+npm install
+echo cleaning
+sudo rm -r tmp
+cd ..
+sudo rm -r tmp
+echo Med-Hub Baseline Ready.
+echo =======================
+echo v.1.2
